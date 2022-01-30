@@ -11,8 +11,8 @@ echo $balance
 echo $providerid
 echo $walletaddr
 
-timewithdraw=$(echo "$balance >= 1" | bc)
-if [ $timewithdraw -ge 1 ]; then 
+timewithdraw=$(echo "$balance >= 0.5" | bc)
+if [ $timewithdraw -ge 0 ]; then 
   echo "withdraw time!"
   echo $(myst cli identities withdraw "$providerid" "$walletaddr" 137)
 fi
